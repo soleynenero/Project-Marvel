@@ -19,9 +19,22 @@
     }
     if($_POST)
     {
-        require "controlleur/loginControlleur.php";
-        $controlleurLogin = new loginControlleur() ;
-        $view = $controlleurLogin->login($_POST);
+        if(isset($_POST["page"])) // ici on regarde si on recupère bien le name et si on le recupere bien en fonction de leur value on va nous amener vers une page
+        {
+            switch($_POST["page"]):
+                case "login":
+                    require "controlleur/loginControlleur.php";
+                    $controlleurLogin = new loginControlleur() ;
+                    $view = $controlleurLogin->login($_POST);
+                    break ;
+
+                case "register":
+                    require "controlleur/loginControlleur.php";
+                    $controlleurLogin = new loginControlleur() ;
+                    $view = $controlleurLogin->login($_POST);
+                    break ;
+            endswitch ;
+        }
     }
 
 
